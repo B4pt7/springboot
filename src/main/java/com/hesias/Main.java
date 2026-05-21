@@ -28,22 +28,22 @@ public class Main implements CommandLineRunner {
     @Override
     public void run(String... args) {
         var book1 = new Book();
-        book1.setTitle("Clean Code");
+        book1.setTitle("Harry Potter à l'école des sorciers");
 
         var book2 = new Book();
-        book2.setTitle("Effective Java");
+        book2.setTitle("Harry Potter et la Chambre des secrets");
 
         var library = new Library();
-        library.setName("City Library");
+        library.setName("Bibliothèque de Poudlard");
         library.setBooks(List.of(book1, book2));
 
         Library saved = libraryService.createLibrary(library);
 
-        System.out.println("All libraries: " + libraryService.getAllLibraries());
-        System.out.println("All books:     " + bookService.getAllBooks());
-        System.out.println("Books in library: " + libraryService.getBooksByLibrary(saved.getId()));
+        System.out.println("Toutes les bibliothèques : " + libraryService.getAllLibraries());
+        System.out.println("Tous les livres :     " + bookService.getAllBooks());
+        System.out.println("Livres dans la bibliothèque : " + libraryService.getBooksByLibrary(saved.getId()));
 
         bookService.deleteBook(book2.getId());
-        System.out.println("After deleting book2: " + bookService.getAllBooks());
+        System.out.println("Après la suppression du livre2 : " + bookService.getAllBooks());
     }
 }
